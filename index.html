@@ -11,7 +11,7 @@
   </style>
 </head>
 <body>
-  <embed src="Scratch.swf">
+   <div id="container"> </div>
     <script>
         window.RufflePlayer = window.RufflePlayer || {};
         window.RufflePlayer.config = {
@@ -20,16 +20,19 @@
             "contextMenu": "off",
             "splashscreen": false,
         };
-          window.addEventListener("load", (event) => {
-              const ruffle = window.RufflePlayer.newest();
-              const player = ruffle.createPlayer();
-              const container = document.getElementById("container");
-              container.appendChild(player);
-              player.style.width = "100vw"; 
-              player.style.height = "100vh";
-              player.load("Scratch.swf");
-          });
     </script>
+    <script>
+      window.RufflePlayer = window.RufflePlayer || {};
+      window.addEventListener("load", (event) => {
+          const ruffle = window.RufflePlayer.newest();
+          const player = ruffle.createPlayer();
+          const container = document.getElementById("container");
+          container.appendChild(player);
+          player.load("Scratch.swf");
+          player.style.width = "100vw"; 
+          player.style.height = "100vh";
+      });
+      </script>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </body>
 </html>
