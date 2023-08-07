@@ -8,24 +8,10 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="2299.6">
   <style ='text/css'>
-.swf{
-  width:100%;
-  padding-top:59%;
-  position:relative;
-}
-  .swf object{
-    position:absolute;
-    toP:0;
-    left:0;
-    bottom:0;
-    right:0;
-}
   </style>
 </head>
 <body>
-  <div class='swf'>
-    <object data="Scratch.swf"></object>
-  </div>
+  <embed src="Scratch.swf">
     <script>
         window.RufflePlayer = window.RufflePlayer || {};
         window.RufflePlayer.config = {
@@ -33,8 +19,16 @@
             "unmuteOverlay": "hidden",
             "contextMenu": "off",
             "splashscreen": false,
-
         };
+          window.addEventListener("load", (event) => {
+              const ruffle = window.RufflePlayer.newest();
+              const player = ruffle.createPlayer();
+              const container = document.getElementById("container");
+              container.appendChild(player);
+              player.style.width = "100vw"; 
+              player.style.height = "100vh";
+              player.load("Scratch.swf");
+          });
     </script>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </body>
